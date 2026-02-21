@@ -673,17 +673,17 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(to top,
-      rgba(26,21,16,0.88) 0%,
-      rgba(26,21,16,0.35) 50%,
-      rgba(26,21,16,0.05) 100%
+      rgba(0,0,0,0.82) 0%,
+      rgba(0,0,0,0.35) 50%,
+      rgba(0,0,0,0.05) 100%
     );
     transition: background 0.5s ease;
   }
   .hotel-photo-card:hover .hpc-overlay {
     background: linear-gradient(to top,
-      rgba(26,21,16,0.92) 0%,
-      rgba(26,21,16,0.5) 60%,
-      rgba(26,21,16,0.15) 100%
+      rgba(0,0,0,0.88) 0%,
+      rgba(0,0,0,0.50) 60%,
+      rgba(0,0,0,0.15) 100%
     );
   }
   .hpc-content {
@@ -698,35 +698,42 @@
   }
   .hpc-left {}
   .hpc-city {
-    font-size: 9px;
+    font-size: 12px;
+    font-weight: 700;
     letter-spacing: 4px;
-    color: var(--gold);
+    color: #fff;
     text-transform: uppercase;
     margin-bottom: 8px;
+    text-shadow: 0 1px 6px rgba(0,0,0,1), 0 2px 16px rgba(0,0,0,0.9);
   }
   .hpc-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 38px;
+    font-size: 42px;
     font-style: italic;
-    color: var(--cream);
-    font-weight: 300;
+    color: #fff;
+    font-weight: 600;
     line-height: 1;
     margin-bottom: 8px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.8);
   }
   .hpc-room {
-    font-size: 11px;
-    color: rgba(250,246,239,0.6);
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.92);
     letter-spacing: 1px;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.95), 0 2px 12px rgba(0,0,0,0.8);
   }
   .hpc-nights {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    color: var(--gold);
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
     font-style: italic;
     white-space: nowrap;
     flex-shrink: 0;
     align-self: flex-end;
     padding-bottom: 4px;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.95), 0 2px 12px rgba(0,0,0,0.8);
   }
 
   /* LIGHTBOX */

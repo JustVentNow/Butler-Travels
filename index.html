@@ -232,6 +232,7 @@
       // Dim background, fade out card, reveal itinerary
       bg.classList.add('dimmed');
       card.classList.add('hidden');
+      startMusic();
       setTimeout(() => {
         reveal.classList.add('show');
       }, 400);
@@ -246,6 +247,19 @@
 
   // Auto-focus on load
   window.addEventListener('load', () => setTimeout(() => input.focus(), 300));
+
+  // Music - plays on unlock
+  function startMusic() {
+    const existing = document.getElementById('yt-music');
+    if (existing) return;
+    const iframe = document.createElement('iframe');
+    iframe.id = 'yt-music';
+    iframe.style.cssText = 'position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;';
+    // Dean Martin - Volare
+    iframe.src = 'https://www.youtube.com/embed/pNdgFDDokRo?autoplay=1&loop=1&playlist=pNdgFDDokRo&controls=0&mute=0';
+    iframe.allow = 'autoplay';
+    document.body.appendChild(iframe);
+  }
 </script>
 
 </body>
