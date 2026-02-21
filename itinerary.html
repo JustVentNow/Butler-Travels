@@ -767,19 +767,147 @@
   }
 
   /* RESPONSIVE */
+  /* HAMBURGER BUTTON — hidden on desktop */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--gold-light);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* ── MOBILE ── */
   @media (max-width: 780px) {
-    nav { padding: 14px 24px; }
-    .nav-links { display: none; }
-    .container { padding: 0 24px; }
-    .gal-intro, .gal-label, .pgrid-2 { padding: 0 24px; }
-    .frow { grid-template-columns: 1fr; gap: 20px; }
+
+    /* NAV */
+    nav { padding: 14px 20px; position: relative; }
+    .hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      background: rgba(26,21,16,0.97);
+      backdrop-filter: blur(16px);
+      flex-direction: column;
+      gap: 0;
+      list-style: none;
+      border-top: 1px solid rgba(184,150,90,0.15);
+      padding: 8px 0 16px;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li a {
+      display: block;
+      padding: 14px 24px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: rgba(250,246,239,0.65);
+      text-decoration: none;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(184,150,90,0.07);
+    }
+    .nav-links li:last-child a { border-bottom: none; }
+
+    /* HERO */
+    .hero { min-height: 100svh; }
+    .hero-content { padding: 0 24px; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 4px; }
+    .hero-pills { gap: 8px; }
+    .hero-pill { padding: 8px 14px; }
+    .hero-travelers { font-size: 18px; }
+
+    /* CONTAINERS */
+    .container { padding: 0 20px; }
+    #flights { padding: 72px 0; }
+    #gallery { padding: 72px 0; }
+    #journey { padding: 72px 0; }
+    #summary { padding: 72px 0; }
+    .gal-intro { padding: 0 20px; margin-bottom: 32px; }
+
+    /* SECTION TITLES */
+    .s-title { font-size: 36px; }
+    .ornament { margin: 40px 0; }
+
+    /* FLIGHTS */
+    .flight-card { padding: 24px 20px; }
+    .frow {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .fcity { font-size: 40px; }
+    .ftime { font-size: 22px; }
     .fr { text-align: left; }
-    .pgrid-3 { grid-template-columns: 1fr 1fr; height: auto; grid-template-rows: 200px 200px; }
-    .pgrid-2 { grid-template-columns: 1fr; height: auto; grid-template-rows: 220px 220px; }
-    .train-strip { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 16px; }
-    .hotel-card { grid-template-columns: 1fr; }
+    .fmid {
+      flex-direction: row;
+      justify-content: flex-start;
+      padding: 16px 0;
+      gap: 12px;
+    }
+    .fline { width: 40px; }
+    .fmeta { text-align: left; }
+
+    /* HOTEL PHOTO CARDS */
+    .hotel-photo-card { height: 260px !important; }
+    .hpc-content { padding: 20px 20px; }
+    .hpc-name { font-size: 30px; }
+    .hpc-city { font-size: 10px; }
+    .hpc-room { font-size: 10px; }
+    .hpc-nights { font-size: 16px; }
+
+    /* JOURNEY */
+    .city-hd {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 16px;
+    }
+    .city-hd-left { flex-wrap: wrap; align-items: baseline; gap: 8px; }
+    .city-num { font-size: 52px; }
+    .city-nm { font-size: 36px; }
+    .city-block { margin-bottom: 52px; }
+
+    /* TRAIN STRIP */
+    .train-strip {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 12px;
+      padding: 18px 16px;
+    }
+    .tcity { font-size: 20px; }
+    .ttime { font-size: 17px; }
+    .tbadge-col { grid-column: span 2; text-align: left; }
+
+    /* HOTEL CARD */
+    .hotel-card {
+      grid-template-columns: 1fr;
+      padding: 22px 18px;
+      gap: 16px;
+    }
+    .h-nights { text-align: left; display: flex; align-items: baseline; gap: 10px; }
+    .h-nights-num { font-size: 44px; }
+    .h-name { font-size: 22px; }
+
+    /* SUMMARY GRID */
     .sum-grid { grid-template-columns: 1fr; }
-    .city-hd { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .sum-cell { padding: 28px 20px; }
+
+    /* FOOTER */
+    footer { padding: 52px 24px; }
+    .f-quote { font-size: 24px; }
   }
 </style>
 </head>
@@ -788,12 +916,15 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">La Bella Italia · 2026</div>
-  <ul class="nav-links">
-    <li><a href="#flights">Flights</a></li>
-    <li><a href="#gallery">Hotels</a></li>
-    <li><a href="#journey">Journey</a></li>
-    <li><a href="#summary">Overview</a></li>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#flights" onclick="closeMenu()">Flights</a></li>
+    <li><a href="#gallery" onclick="closeMenu()">Hotels</a></li>
+    <li><a href="#journey" onclick="closeMenu()">Journey</a></li>
+    <li><a href="#summary" onclick="closeMenu()">Overview</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -1202,6 +1333,25 @@
       el.style.transitionDelay = (i % 3) * 0.12 + 's';
     }
     obs.observe(el);
+  });
+  // Hamburger menu
+  function toggleMenu() {
+    const nav = document.getElementById('nav-links');
+    const btn = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeMenu() {
+    const nav = document.getElementById('nav-links');
+    const btn = document.getElementById('hamburger');
+    nav.classList.remove('open');
+    btn.classList.remove('open');
+  }
+  // Close menu on outside click
+  document.addEventListener('click', (e) => {
+    const nav = document.getElementById('nav-links');
+    const btn = document.getElementById('hamburger');
+    if (!nav.contains(e.target) && !btn.contains(e.target)) closeMenu();
   });
 </script>
 </body>

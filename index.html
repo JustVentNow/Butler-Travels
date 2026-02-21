@@ -212,6 +212,18 @@
   <iframe src="itinerary.html" id="frame"></iframe>
 </div>
 
+<!-- Music fallback for iPhone -->
+<button id="music-btn" onclick="playMusicManual()" style="
+  position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
+  background:rgba(255,255,255,0.15); backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.3); border-radius:40px;
+  color:#fff; font-size:11px; letter-spacing:3px; text-transform:uppercase;
+  padding:12px 24px; cursor:pointer; z-index:20;
+  opacity:0; pointer-events:none;
+  transition:opacity 0.5s ease;
+  font-family:'Georgia',serif;
+">🎵 &nbsp;Play Music</button>
+
 <script>
   const input = document.getElementById('pw');
   const err   = document.getElementById('err');
@@ -258,6 +270,21 @@
     iframe.allow = 'autoplay';
     iframe.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/dean-martin-official/volare-nel-blu-di-pinto-di&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false';
     document.body.appendChild(iframe);
+    // Show fallback button after 2s if on mobile (iOS blocks autoplay)
+    setTimeout(() => {
+      const isMobile = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile) {
+        document.getElementById('music-btn').style.opacity = '1';
+        document.getElementById('music-btn').style.pointerEvents = 'all';
+      }
+    }, 2000);
+  }
+
+  function playMusicManual() {
+    const iframe = document.getElementById('sc-music');
+    if (iframe) iframe.src = iframe.src; // reload triggers play on iOS
+    document.getElementById('music-btn').style.opacity = '0';
+    document.getElementById('music-btn').style.pointerEvents = 'none';
   }
 </script>
 
