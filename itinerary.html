@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Bella Italia — Butler Family 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #B8965A;
+    --gold-light: #D4AF7A;
+    --gold-pale: #F5EDD9;
+    --dark: #1A1510;
+    --dark-mid: #2E2519;
+    --cream: #FAF6EF;
+    --text: #3D3020;
+    --text-light: #7A6A50;
+    --border: rgba(184,150,90,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 48px;
+    background: rgba(26,21,16,0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(184,150,90,0.12);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: rgba(250,246,239,0.5);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--dark);
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=1800&q=80');
+    background-size: cover;
+    background-position: center 40%;
+    opacity: 0.38;
+    animation: slowZoom 18s ease-in-out infinite alternate;
+  }
+  @keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.07); }
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(26,21,16,0.25) 0%,
+      rgba(26,21,16,0.15) 35%,
+      rgba(26,21,16,0.65) 80%,
+      rgba(26,21,16,1) 100%
+    );
+  }
+  .hero-content {
+    position: relative;
+    text-align: center;
+    padding: 0 40px;
+  }
+  .hero-eyebrow {
+    font-size: 9px;
+    letter-spacing: 7px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.4s forwards;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(76px, 11vw, 136px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 0.88;
+    letter-spacing: -2px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.6s forwards;
+  }
+  .hero-title em { font-style: italic; color: var(--gold-light); }
+  .hero-subtitle {
+    font-size: 10px;
+    letter-spacing: 7px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 24px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.8s forwards;
+  }
+  .hero-rule {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    margin: 36px auto;
+    opacity: 0;
+    animation: fadeUp 1s ease 1s forwards;
+  }
+  .hero-pills {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.1s forwards;
+  }
+  .hero-pill {
+    padding: 10px 22px;
+    border: 1px solid rgba(184,150,90,0.35);
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: rgba(250,246,239,0.65);
+    text-transform: uppercase;
+  }
+  .hero-pill span { color: var(--gold); }
+  .hero-travelers {
+    margin-top: 28px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    color: rgba(250,246,239,0.45);
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.3s forwards;
+  }
+  .scroll-cue {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.8s forwards;
+  }
+  .scroll-cue span {
+    font-size: 7px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(6px); }
+  }
+
+  /* SECTION BASE */
+  .container { max-width: 980px; margin: 0 auto; padding: 0 48px; }
+  .s-eyebrow {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .s-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--dark);
+    line-height: 1;
+  }
+  .s-title.lt { color: var(--cream); }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 64px 0;
+  }
+  .ornament::before, .ornament::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+  }
+  .ornament-gem { color: var(--gold); font-size: 14px; }
+
+  /* FLIGHTS */
+  #flights { background: var(--dark); padding: 110px 0; }
+
+  .flight-card {
+    border: 1px solid rgba(184,150,90,0.18);
+    padding: 40px;
+    margin-bottom: 20px;
+  }
+  .flight-card:last-child { margin-bottom: 0; }
+  .fleg {
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .fleg::after { content: ''; flex: 1; height: 1px; background: rgba(184,150,90,0.2); }
+
+  .frow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 32px;
+  }
+  .fcity {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    color: var(--cream);
+    font-weight: 300;
+    line-height: 1;
+  }
+  .ftime {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    color: var(--gold);
+    margin-top: 4px;
+  }
+  .fdate {
+    font-size: 10px;
+    color: rgba(250,246,239,0.38);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .fbadge {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid rgba(184,150,90,0.32);
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+  .fmid {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .fplane { font-size: 22px; color: var(--gold); }
+  .fline { width: 70px; height: 1px; background: rgba(184,150,90,0.25); }
+  .fmeta {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: rgba(250,246,239,0.38);
+    text-transform: uppercase;
+    line-height: 2;
+  }
+  .fr { text-align: right; }
+  .alert {
+    margin-top: 28px;
+    padding: 16px 22px;
+    background: rgba(184,150,90,0.06);
+    border-left: 2px solid var(--gold);
+    font-size: 11px;
+    color: rgba(250,246,239,0.5);
+    line-height: 1.7;
+  }
+  .alert strong { color: var(--gold-light); }
+
+  /* GALLERY */
+  #gallery { background: var(--dark); padding: 110px 0; }
+
+  .gal-intro { max-width: 980px; margin: 0 auto 60px; padding: 0 48px; }
+
+  .gal-block { margin-bottom: 80px; }
+  .gal-block:last-child { margin-bottom: 0; }
+
+  .gal-label {
+    max-width: 980px;
+    margin: 0 auto 20px;
+    padding: 0 48px;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+  }
+  .gal-label-text {}
+  .gal-city-tag {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .gal-hotel-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-style: italic;
+    color: var(--cream);
+    font-weight: 300;
+    line-height: 1;
+  }
+  .gal-rule { flex: 1; height: 1px; background: rgba(184,150,90,0.18); }
+
+  /* Photo grids — full bleed */
+  .pgrid-3 {
+    display: grid;
+    grid-template-columns: 1.65fr 1fr 1fr;
+    gap: 4px;
+    height: 340px;
+  }
+  .pgrid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    height: 270px;
+    max-width: 980px;
+    margin: 4px auto 0;
+    padding: 0 48px;
+  }
+  .ptile {
+    overflow: hidden;
+    position: relative;
+    cursor: zoom-in;
+  }
+  .ptile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.75s cubic-bezier(.25,.46,.45,.94);
+    display: block;
+  }
+  .ptile:hover img { transform: scale(1.06); }
+  .ptile-cap {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 24px 16px 12px;
+    background: linear-gradient(to top, rgba(26,21,16,0.88), transparent);
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(250,246,239,0.72);
+    text-transform: uppercase;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+  }
+  .ptile:hover .ptile-cap { transform: translateY(0); }
+  .ptile-badge {
+    position: absolute;
+    top: 14px; right: 14px;
+    padding: 5px 10px;
+    background: rgba(184,150,90,0.9);
+    font-size: 7px;
+    letter-spacing: 2px;
+    color: var(--dark);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* JOURNEY */
+  #journey { padding: 110px 0; }
+
+  .city-block { margin-bottom: 72px; }
+  .city-block:last-child { margin-bottom: 0; }
+
+  .city-hd {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+    gap: 20px;
+  }
+  .city-hd-left { display: flex; align-items: baseline; gap: 14px; }
+  .city-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 76px;
+    color: var(--gold-pale);
+    line-height: 1;
+    font-weight: 300;
+  }
+  .city-nm {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-style: italic;
+    color: var(--dark);
+    line-height: 1;
+    font-weight: 300;
+  }
+  .city-ctry {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .city-pill {
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* TRAIN STRIP */
+  .train-strip {
+    background: var(--dark-mid);
+    padding: 24px 32px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+  .tpt {}
+  .tfrom {
+    font-size: 7px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tcity {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--cream);
+    font-weight: 300;
+  }
+  .ttime {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--gold);
+  }
+  .tmid { text-align: center; }
+  .tarrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: rgba(184,150,90,0.45);
+  }
+  .tline { flex: 1; height: 1px; background: rgba(184,150,90,0.28); width: 36px; }
+  .tmeta {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 6px;
+    line-height: 1.9;
+  }
+  .tpt.right { text-align: right; }
+  .tbadge-col { text-align: right; }
+  .tcode {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid rgba(184,150,90,0.28);
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+  }
+  .tseat {
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    margin-top: 6px;
+    text-align: right;
+  }
+
+  /* HOTEL CARD */
+  .hotel-card {
+    background: #fff;
+    border-left: 3px solid var(--gold);
+    padding: 32px 36px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 24px;
+  }
+  .h-eyebrow {
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .h-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .h-room {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .h-detail {
+    font-size: 11px;
+    color: var(--text-light);
+    line-height: 1.75;
+  }
+  .h-nights { text-align: center; }
+  .h-nights-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+    color: var(--gold-light);
+    line-height: 1;
+    font-weight: 300;
+  }
+  .h-nights-lbl {
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: var(--text-light);
+    text-transform: uppercase;
+  }
+
+  /* NOTE */
+  .note {
+    margin-top: 14px;
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 11px;
+    color: var(--text-light);
+    line-height: 1.75;
+  }
+  .note-icon { color: var(--gold); flex-shrink: 0; }
+  .note strong { color: var(--text); font-weight: 500; }
+
+  /* SUMMARY */
+  #summary { background: var(--dark); padding: 110px 0; }
+  .sum-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(184,150,90,0.15);
+    border: 1px solid rgba(184,150,90,0.15);
+    margin-top: 48px;
+  }
+  .sum-cell {
+    background: var(--dark);
+    padding: 36px 30px;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .sum-cell.visible { opacity: 1; transform: translateY(0); }
+  .sum-lbl {
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .sum-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--cream);
+    font-weight: 300;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .sum-sub {
+    font-size: 10px;
+    color: var(--text-light);
+    line-height: 1.85;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid rgba(184,150,90,0.12);
+    text-align: center;
+    padding: 72px 40px;
+  }
+  .f-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-style: italic;
+    color: rgba(250,246,239,0.38);
+  }
+  .f-sub {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 16px;
+  }
+  .f-heart { font-size: 22px; color: var(--gold); margin-top: 28px; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* HOTEL PHOTO CARDS */
+  .hotel-photo-card {
+    position: relative;
+    height: 340px;
+    background-size: cover;
+    background-position: center;
+    cursor: zoom-in;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+  .hotel-photo-card:first-child { height: 400px; }
+  .hotel-photo-card:hover img + .ptile-cap,
+  .hotel-photo-card:hover .ptile-cap { transform: translateY(0); }
+  .hpc-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+      rgba(26,21,16,0.88) 0%,
+      rgba(26,21,16,0.35) 50%,
+      rgba(26,21,16,0.05) 100%
+    );
+    transition: background 0.5s ease;
+  }
+  .hotel-photo-card:hover .hpc-overlay {
+    background: linear-gradient(to top,
+      rgba(26,21,16,0.92) 0%,
+      rgba(26,21,16,0.5) 60%,
+      rgba(26,21,16,0.15) 100%
+    );
+  }
+  .hpc-content {
+    position: relative;
+    padding: 36px 44px;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .hpc-left {}
+  .hpc-city {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .hpc-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-style: italic;
+    color: var(--cream);
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .hpc-room {
+    font-size: 11px;
+    color: rgba(250,246,239,0.6);
+    letter-spacing: 1px;
+  }
+  .hpc-nights {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--gold);
+    font-style: italic;
+    white-space: nowrap;
+    flex-shrink: 0;
+    align-self: flex-end;
+    padding-bottom: 4px;
+  }
+
+  /* LIGHTBOX */
+  .lb {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.96);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+  .lb.open { display: flex; }
+  .lb img {
+    max-width: 90vw;
+    max-height: 84vh;
+    object-fit: contain;
+    border: 1px solid rgba(184,150,90,0.25);
+  }
+  .lb-close {
+    position: absolute; top: 22px; right: 30px;
+    font-size: 32px; color: var(--gold);
+    background: none; border: none; cursor: pointer; line-height: 1;
+  }
+  .lb-cap {
+    position: absolute; bottom: 22px;
+    left: 50%; transform: translateX(-50%);
+    font-size: 9px; letter-spacing: 3px;
+    color: rgba(250,246,239,0.45);
+    text-transform: uppercase; white-space: nowrap;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 780px) {
+    nav { padding: 14px 24px; }
+    .nav-links { display: none; }
+    .container { padding: 0 24px; }
+    .gal-intro, .gal-label, .pgrid-2 { padding: 0 24px; }
+    .frow { grid-template-columns: 1fr; gap: 20px; }
+    .fr { text-align: left; }
+    .pgrid-3 { grid-template-columns: 1fr 1fr; height: auto; grid-template-rows: 200px 200px; }
+    .pgrid-2 { grid-template-columns: 1fr; height: auto; grid-template-rows: 220px 220px; }
+    .train-strip { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 16px; }
+    .hotel-card { grid-template-columns: 1fr; }
+    .sum-grid { grid-template-columns: 1fr; }
+    .city-hd { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">La Bella Italia · 2026</div>
+  <ul class="nav-links">
+    <li><a href="#flights">Flights</a></li>
+    <li><a href="#gallery">Hotels</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#summary">Overview</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Butler Family · Spring 2026</div>
+    <h1 class="hero-title">La <em>Bella</em><br>Italia</h1>
+    <div class="hero-subtitle">Venice &nbsp;·&nbsp; Florence &nbsp;·&nbsp; Rome</div>
+    <div class="hero-rule"></div>
+    <div class="hero-pills">
+      <div class="hero-pill">Depart <span>March 29, 2026</span></div>
+      <div class="hero-pill"><span>3</span> Cities &nbsp;·&nbsp; <span>8</span> Nights</div>
+      <div class="hero-pill">Return <span>April 7, 2026</span></div>
+    </div>
+    <div class="hero-travelers">Charles, Megan &amp; Mary</div>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- FLIGHTS -->
+<section id="flights">
+  <div class="container">
+    <div class="s-eyebrow">Transatlantic</div>
+    <div class="s-title lt">Chicago ↔ Rome</div>
+    <div style="margin-top:48px;">
+
+      <div class="flight-card reveal">
+        <div class="fleg">Outbound &nbsp;·&nbsp; United Airlines UA 970</div>
+        <div class="frow">
+          <div>
+            <div class="fcity">ORD</div>
+            <div class="ftime">3:40 PM</div>
+            <div class="fdate">Sunday, March 29, 2026</div>
+            <div class="fbadge">Chicago O'Hare</div>
+          </div>
+          <div class="fmid">
+            <div class="fplane">✈</div>
+            <div class="fline"></div>
+            <div class="fmeta">9h 15m<br>Boeing 787-10<br>Premium Plus<br>Seats 22D · 22E · 22F</div>
+          </div>
+          <div class="fr">
+            <div class="fcity">FCO</div>
+            <div class="ftime">7:55 AM +1</div>
+            <div class="fdate">Monday, March 30, 2026</div>
+            <div class="fbadge">Rome Fiumicino</div>
+          </div>
+        </div>
+        <div class="alert">
+          <strong>⚡ Tight connection morning:</strong> Land 7:55 AM → clear customs & collect bags → Leonardo Express to Roma Termini (~32 min) → board 10:55 AM Italo to Venice. Move efficiently — it's doable but leave zero time to spare.
+        </div>
+      </div>
+
+      <div class="flight-card reveal" style="margin-top:16px;">
+        <div class="fleg">Return &nbsp;·&nbsp; United Airlines UA 971</div>
+        <div class="frow">
+          <div>
+            <div class="fcity">FCO</div>
+            <div class="ftime">9:45 AM</div>
+            <div class="fdate">Tuesday, April 7, 2026</div>
+            <div class="fbadge">Rome Fiumicino</div>
+          </div>
+          <div class="fmid">
+            <div class="fplane">✈</div>
+            <div class="fline"></div>
+            <div class="fmeta">10h 20m<br>Boeing 787-10<br>Premium Plus<br>Seats 20D · 20E · 20F</div>
+          </div>
+          <div class="fr">
+            <div class="fcity">ORD</div>
+            <div class="ftime">1:05 PM</div>
+            <div class="fdate">Tuesday, April 7, 2026</div>
+            <div class="fbadge">Chicago O'Hare</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" style="padding-top:110px; padding-bottom:110px; background:var(--dark);">
+
+  <div class="gal-intro">
+    <div class="s-eyebrow">Where We're Staying</div>
+    <div class="s-title lt">Three Legendary Hotels</div>
+  </div>
+
+  <div style="max-width:980px; margin: 56px auto 0; padding: 0 48px; display:flex; flex-direction:column; gap:6px;">
+
+    <!-- VENICE CARD -->
+    <div class="hotel-photo-card" onclick="openLB(this)"
+         style="background-image: url('https://cdn.letsgomylove.com/wp-content/uploads/2022/08/the-gritti-palace-venise-hotel-6-1536x1024.jpg')">
+      <div class="hpc-overlay"></div>
+      <div class="hpc-content">
+        <div class="hpc-left">
+          <div class="hpc-city">Venice &nbsp;·&nbsp; Mar 30 – Apr 1</div>
+          <div class="hpc-name">The Gritti Palace</div>
+          <div class="hpc-room">Giglio Prestige Larger Room with View</div>
+        </div>
+        <div class="hpc-nights">2 Nights</div>
+      </div>
+      <img src="https://cdn.letsgomylove.com/wp-content/uploads/2022/08/the-gritti-palace-venise-hotel-6-1536x1024.jpg" alt="The Gritti Palace Venice exterior" style="display:none">
+      <div class="ptile-cap">The Gritti Palace · Grand Canal Façade · Campo Santa Maria del Giglio</div>
+    </div>
+
+    <!-- FLORENCE CARD -->
+    <div class="hotel-photo-card" onclick="openLB(this)"
+         style="background-image: url('https://www.stefanocigana.com/wp-content/uploads/2021/04/hotel-santa-maria-novella-firenze-stefano-cigana-2-1-1024x423.jpg')">
+      <div class="hpc-overlay"></div>
+      <div class="hpc-content">
+        <div class="hpc-left">
+          <div class="hpc-city">Florence &nbsp;·&nbsp; Apr 1 – 4</div>
+          <div class="hpc-name">Hotel Santa Maria Novella</div>
+          <div class="hpc-room">Superior Triple Room · Two Bedrooms</div>
+        </div>
+        <div class="hpc-nights">3 Nights</div>
+      </div>
+      <img src="https://www.stefanocigana.com/wp-content/uploads/2021/04/hotel-santa-maria-novella-firenze-stefano-cigana-2-1-1024x423.jpg" alt="Hotel Santa Maria Novella Florence exterior" style="display:none">
+      <div class="ptile-cap">Hotel Santa Maria Novella · Piazza Santa Maria Novella, Florence</div>
+    </div>
+
+    <!-- ROME CARD -->
+    <div class="hotel-photo-card" onclick="openLB(this)"
+         style="background-image: url('https://italics.art/wp-content/uploads/2020/09/strROMXRed.301556-1024x683.jpg')">
+      <div class="hpc-overlay"></div>
+      <div class="hpc-content">
+        <div class="hpc-left">
+          <div class="hpc-city">Rome &nbsp;·&nbsp; Apr 4 – 7</div>
+          <div class="hpc-name">The St. Regis Rome</div>
+          <div class="hpc-room">Imperial Guest Room</div>
+        </div>
+        <div class="hpc-nights">3 Nights</div>
+      </div>
+      <img src="https://italics.art/wp-content/uploads/2020/09/strROMXRed.301556-1024x683.jpg" alt="The St. Regis Rome exterior" style="display:none">
+      <div class="ptile-cap">The St. Regis Rome · Via Vittorio Emanuele Orlando · Since 1894</div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="container">
+    <div class="s-eyebrow">Day by Day</div>
+    <div class="s-title">The Full Journey</div>
+
+    <div style="margin-top:64px;">
+
+      <!-- VENICE -->
+      <div class="city-block reveal">
+        <div class="city-hd">
+          <div class="city-hd-left">
+            <div class="city-num">I</div>
+            <div>
+              <div class="city-nm">Venezia</div>
+              <div class="city-ctry">Venice, Italy</div>
+            </div>
+          </div>
+          <div class="city-pill">Mar 30 — Apr 1 · 2 Nights</div>
+        </div>
+        <div class="train-strip">
+          <div class="tpt">
+            <div class="tfrom">Departing Rome</div>
+            <div class="tcity">Roma Ter.</div>
+            <div class="ttime">10:55</div>
+          </div>
+          <div class="tmid">
+            <div class="tarrow"><div class="tline"></div><span>▶</span><div class="tline"></div></div>
+            <div class="tmeta">Italo 8910 · 4h · Prima Business<br>Mon Mar 30</div>
+          </div>
+          <div class="tpt right">
+            <div class="tfrom">Arriving Venice</div>
+            <div class="tcity">Venezia S.L.</div>
+            <div class="ttime">14:55</div>
+          </div>
+          <div class="tbadge-col">
+            <div class="tcode">RFECTJ</div>
+            <div class="tseat">Coach 2 · Seats 24, 25, 27</div>
+          </div>
+        </div>
+        <div class="hotel-card">
+          <div>
+            <div class="h-eyebrow">Accommodation · 2 Nights</div>
+            <div class="h-name">The Gritti Palace, A Luxury Collection Hotel</div>
+            <div class="h-room">Giglio Prestige Larger Room with View</div>
+            <div class="h-detail">
+              Campo Santa Maria del Giglio, Venice · Palazzo dating to 1475<br>
+              Venetian antiques · Murano glass chandelier · Rubelli silk fabrics · Marble bathroom<br>
+              Views of Santa Maria del Giglio Square &amp; its neoclassical church · Acqua di Parma amenities<br>
+              Grand Canal terrace access · Hemingway's Venice
+            </div>
+          </div>
+          <div class="h-nights">
+            <div class="h-nights-num">2</div>
+            <div class="h-nights-lbl">Nights</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ornament"><div class="ornament-gem">◆</div></div>
+
+      <!-- FLORENCE -->
+      <div class="city-block reveal">
+        <div class="city-hd">
+          <div class="city-hd-left">
+            <div class="city-num">II</div>
+            <div>
+              <div class="city-nm">Firenze</div>
+              <div class="city-ctry">Florence, Italy</div>
+            </div>
+          </div>
+          <div class="city-pill">Apr 1 — Apr 4 · 3 Nights</div>
+        </div>
+        <div class="train-strip">
+          <div class="tpt">
+            <div class="tfrom">Departing Venice</div>
+            <div class="tcity">Venezia S.L.</div>
+            <div class="ttime">14:05</div>
+          </div>
+          <div class="tmid">
+            <div class="tarrow"><div class="tline"></div><span>▶</span><div class="tline"></div></div>
+            <div class="tmeta">Italo 8915 · 2h 15m · Prima Business<br>Wed Apr 1</div>
+          </div>
+          <div class="tpt right">
+            <div class="tfrom">Arriving Florence</div>
+            <div class="tcity">Firenze S.M.</div>
+            <div class="ttime">16:20</div>
+          </div>
+          <div class="tbadge-col">
+            <div class="tcode">XBUE6S</div>
+            <div class="tseat">Coach 3 · Seats 18, 19, 21</div>
+          </div>
+        </div>
+        <div class="hotel-card">
+          <div>
+            <div class="h-eyebrow">Accommodation · 3 Nights</div>
+            <div class="h-name">Hotel Santa Maria Novella</div>
+            <div class="h-room">Superior Triple Room · Two Separate Bedrooms</div>
+            <div class="h-detail">
+              Piazza Santa Maria Novella, Florence · Historic palazzo<br>
+              Two separate bedrooms — private space for all of us mid-trip<br>
+              Steps from the train station · 10–12 min walk to Duomo, Uffizi &amp; Ponte Vecchio
+            </div>
+          </div>
+          <div class="h-nights">
+            <div class="h-nights-num">3</div>
+            <div class="h-nights-lbl">Nights</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ornament"><div class="ornament-gem">◆</div></div>
+
+      <!-- ROME -->
+      <div class="city-block reveal">
+        <div class="city-hd">
+          <div class="city-hd-left">
+            <div class="city-num">III</div>
+            <div>
+              <div class="city-nm">Roma</div>
+              <div class="city-ctry">Rome, Italy</div>
+            </div>
+          </div>
+          <div class="city-pill">Apr 4 — Apr 7 · 3 Nights</div>
+        </div>
+        <div class="train-strip">
+          <div class="tpt">
+            <div class="tfrom">Departing Florence</div>
+            <div class="tcity">Firenze S.M.</div>
+            <div class="ttime">13:28</div>
+          </div>
+          <div class="tmid">
+            <div class="tarrow"><div class="tline"></div><span>▶</span><div class="tline"></div></div>
+            <div class="tmeta">Italo 8911 · 1h 42m · Prima Business<br>Sat Apr 4</div>
+          </div>
+          <div class="tpt right">
+            <div class="tfrom">Arriving Rome</div>
+            <div class="tcity">Roma Ter.</div>
+            <div class="ttime">15:10</div>
+          </div>
+          <div class="tbadge-col">
+            <div class="tcode">MK4R2U</div>
+            <div class="tseat">Coach 1 · Seats 23, 24, 27</div>
+          </div>
+        </div>
+        <div class="hotel-card">
+          <div>
+            <div class="h-eyebrow">Accommodation · 3 Nights</div>
+            <div class="h-name">The St. Regis Rome</div>
+            <div class="h-room">Imperial Guest Room</div>
+            <div class="h-detail">
+              Via Vittorio Emanuele Orlando, Rome · Rome's original grand hotel since 1894<br>
+              Largest guest room category · King bed · Marble bathroom with soaking tub &amp; separate shower<br>
+              Pierre-Yves Rochon interiors in powder blue &amp; gold neoclassical style · Murano glass chandelier<br>
+              Personal butler service · Lumen bar with nightly 7 PM champagne sabering ritual
+            </div>
+          </div>
+          <div class="h-nights">
+            <div class="h-nights-num">3</div>
+            <div class="h-nights-lbl">Nights</div>
+          </div>
+        </div>
+        <div class="note">
+          <span class="note-icon">✈</span>
+          <div>
+            <strong>Departure morning, April 7:</strong> Leave hotel no later than 7:00 AM for 9:45 AM flight from FCO. Allow ~45 min transfer + check-in + security. Ask the butler to arrange a car the evening before.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section id="summary">
+  <div class="container">
+    <div class="s-eyebrow">Overview</div>
+    <div class="s-title lt">The Full Picture</div>
+    <div class="sum-grid">
+      <div class="sum-cell">
+        <div class="sum-lbl">Air Travel</div>
+        <div class="sum-val">United Airlines<br>Premium Plus</div>
+        <div class="sum-sub">UA 970 &amp; UA 971<br>Boeing 787-10 Dreamliner<br>Confirmation: J69R1T</div>
+      </div>
+      <div class="sum-cell">
+        <div class="sum-lbl">Rail</div>
+        <div class="sum-val">Italo · Prima<br>Business</div>
+        <div class="sum-sub">3 legs across Italy<br>€443.10 total<br>All Prima Business class</div>
+      </div>
+      <div class="sum-cell">
+        <div class="sum-lbl">Venice · 2 Nights</div>
+        <div class="sum-val">The Gritti Palace</div>
+        <div class="sum-sub">Giglio Prestige Room<br>Mar 30 – Apr 1<br>Grand Canal · Since 1475</div>
+      </div>
+      <div class="sum-cell">
+        <div class="sum-lbl">Florence · 3 Nights</div>
+        <div class="sum-val">Hotel Santa Maria<br>Novella</div>
+        <div class="sum-sub">Superior Triple · 2 Bedrooms<br>Apr 1 – 4<br>Piazza Santa Maria Novella</div>
+      </div>
+      <div class="sum-cell">
+        <div class="sum-lbl">Rome · 3 Nights</div>
+        <div class="sum-val">The St. Regis Rome</div>
+        <div class="sum-sub">Imperial Guest Room<br>Apr 4 – 7<br>Butler service · Since 1894</div>
+      </div>
+      <div class="sum-cell">
+        <div class="sum-lbl">Coming Soon</div>
+        <div class="sum-val">Museums &amp;<br>Attractions</div>
+        <div class="sum-sub">Uffizi · Accademia (David)<br>Borghese · Vatican Museums<br>Colosseum · Book ASAP!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-quote">"Il dolce far niente"</div>
+  <div class="f-sub">The sweetness of doing nothing &nbsp;·&nbsp; Italy awaits us</div>
+  <div class="f-heart">♥</div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLB(event)">
+  <button class="lb-close" onclick="closeLB()">×</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-cap" id="lb-cap"></div>
+</div>
+
+<script>
+  // Lightbox
+  function openLB(tile) {
+    const imgs = tile.querySelectorAll('img');
+    const img = imgs[imgs.length - 1];
+    const cap = tile.querySelector('.ptile-cap');
+    document.getElementById('lb-img').src = img.src;
+    document.getElementById('lb-cap').textContent = cap ? cap.textContent : '';
+    document.getElementById('lb').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLB(e) {
+    if (!e || e.target === document.getElementById('lb') || e.target.classList.contains('lb-close')) {
+      document.getElementById('lb').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('lb').classList.remove('open'); document.body.style.overflow = ''; }});
+
+  // Scroll reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal, .sum-cell').forEach((el, i) => {
+    if (el.classList.contains('sum-cell')) {
+      el.style.transitionDelay = (i % 3) * 0.12 + 's';
+    }
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
