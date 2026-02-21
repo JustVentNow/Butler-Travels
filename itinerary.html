@@ -100,7 +100,7 @@
     padding: 0 40px;
   }
   .hero-eyebrow {
-    font-size: 9px;
+    font-size: 13px;
     letter-spacing: 7px;
     color: var(--gold);
     text-transform: uppercase;
@@ -110,7 +110,7 @@
   }
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(76px, 11vw, 136px);
+    font-size: clamp(62px, 9vw, 112px);
     font-weight: 300;
     color: var(--cream);
     line-height: 0.88;
@@ -661,7 +661,7 @@
     height: 340px;
     background-size: cover;
     background-position: center;
-    cursor: zoom-in;
+    cursor: pointer;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
@@ -840,7 +840,7 @@
           </div>
         </div>
         <div class="alert">
-          <strong>⚡ Tight connection morning:</strong> Land 7:55 AM → clear customs & collect bags → Leonardo Express to Roma Termini (~32 min) → board 10:55 AM Italo to Venice. Move efficiently — it's doable but leave zero time to spare.
+          Land 7:55 AM → Leonardo Express to Roma Termini (~32 min) → board 10:55 AM Italo to Venice.
         </div>
       </div>
 
@@ -882,8 +882,8 @@
   <div style="max-width:980px; margin: 56px auto 0; padding: 0 48px; display:flex; flex-direction:column; gap:6px;">
 
     <!-- VENICE CARD -->
-    <div class="hotel-photo-card" onclick="openLB(this)"
-         style="background-image: url('https://cdn.letsgomylove.com/wp-content/uploads/2022/08/the-gritti-palace-venise-hotel-6-1536x1024.jpg')">
+    <a class="hotel-photo-card" href="https://www.marriott.com/en-us/hotels/vcegl-the-gritti-palace-a-luxury-collection-hotel-venice/overview/" target="_blank" rel="noopener"
+         style="background-image: url('https://cdn.letsgomylove.com/wp-content/uploads/2022/08/the-gritti-palace-venise-hotel-6-1536x1024.jpg'); text-decoration:none; display:flex; align-items:flex-end;">
       <div class="hpc-overlay"></div>
       <div class="hpc-content">
         <div class="hpc-left">
@@ -895,11 +895,11 @@
       </div>
       <img src="https://cdn.letsgomylove.com/wp-content/uploads/2022/08/the-gritti-palace-venise-hotel-6-1536x1024.jpg" alt="The Gritti Palace Venice exterior" style="display:none">
       <div class="ptile-cap">The Gritti Palace · Grand Canal Façade · Campo Santa Maria del Giglio</div>
-    </div>
+    </a>
 
     <!-- FLORENCE CARD -->
-    <div class="hotel-photo-card" onclick="openLB(this)"
-         style="background-image: url('https://www.stefanocigana.com/wp-content/uploads/2021/04/hotel-santa-maria-novella-firenze-stefano-cigana-2-1-1024x423.jpg')">
+    <a class="hotel-photo-card" href="https://www.hotelsantamarianovella.it/eng" target="_blank" rel="noopener"
+         style="background-image: url('https://www.stefanocigana.com/wp-content/uploads/2021/04/hotel-santa-maria-novella-firenze-stefano-cigana-2-1-1024x423.jpg'); text-decoration:none; display:flex; align-items:flex-end;">
       <div class="hpc-overlay"></div>
       <div class="hpc-content">
         <div class="hpc-left">
@@ -911,11 +911,11 @@
       </div>
       <img src="https://www.stefanocigana.com/wp-content/uploads/2021/04/hotel-santa-maria-novella-firenze-stefano-cigana-2-1-1024x423.jpg" alt="Hotel Santa Maria Novella Florence exterior" style="display:none">
       <div class="ptile-cap">Hotel Santa Maria Novella · Piazza Santa Maria Novella, Florence</div>
-    </div>
+    </a>
 
     <!-- ROME CARD -->
-    <div class="hotel-photo-card" onclick="openLB(this)"
-         style="background-image: url('https://italics.art/wp-content/uploads/2020/09/strROMXRed.301556-1024x683.jpg')">
+    <a class="hotel-photo-card" href="https://www.marriott.com/en-us/hotels/romxr-the-st-regis-rome/overview/" target="_blank" rel="noopener"
+         style="background-image: url('https://italics.art/wp-content/uploads/2020/09/strROMXRed.301556-1024x683.jpg'); text-decoration:none; display:flex; align-items:flex-end;">
       <div class="hpc-overlay"></div>
       <div class="hpc-content">
         <div class="hpc-left">
@@ -927,7 +927,7 @@
       </div>
       <img src="https://italics.art/wp-content/uploads/2020/09/strROMXRed.301556-1024x683.jpg" alt="The St. Regis Rome exterior" style="display:none">
       <div class="ptile-cap">The St. Regis Rome · Via Vittorio Emanuele Orlando · Since 1894</div>
-    </div>
+    </a>
 
   </div>
 
