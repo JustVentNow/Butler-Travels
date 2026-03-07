@@ -567,6 +567,128 @@
     text-transform: uppercase;
   }
 
+  /* DAILY SCHEDULE */
+  .day-schedule {
+    margin-top: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .day-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 28px;
+    background: rgba(184,150,90,0.04);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.3s;
+    user-select: none;
+  }
+  .day-header:hover { background: rgba(184,150,90,0.08); }
+  .day-header-left { display: flex; align-items: baseline; gap: 16px; }
+  .day-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1;
+  }
+  .day-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .day-toggle {
+    font-size: 14px;
+    color: var(--gold);
+    transition: transform 0.35s ease;
+    flex-shrink: 0;
+  }
+  .day-schedule.open .day-toggle { transform: rotate(180deg); }
+  .day-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(.4,0,.2,1);
+  }
+  .day-schedule.open .day-body { max-height: 1200px; }
+  .act-list { padding: 0; }
+  .act-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+    padding: 20px 28px;
+    border-bottom: 1px solid rgba(184,150,90,0.1);
+    align-items: start;
+  }
+  .act-item:last-child { border-bottom: none; }
+  .act-time-block { text-align: right; padding-top: 2px; }
+  .act-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--gold);
+    line-height: 1;
+    font-weight: 600;
+  }
+  .act-duration {
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+  .act-content {}
+  .act-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--dark);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .act-detail {
+    font-size: 11px;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+  .act-badge-tbd {
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid rgba(184,150,90,0.3);
+    font-size: 7px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 6px;
+    font-weight: 500;
+  }
+  .act-icon {
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 13px;
+    vertical-align: middle;
+  }
+  .day-empty {
+    padding: 28px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-light);
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 780px) {
+    .day-header { padding: 16px 18px; }
+    .day-date { font-size: 18px; }
+    .act-item {
+      grid-template-columns: 80px 1fr;
+      gap: 14px;
+      padding: 16px 18px;
+    }
+    .act-time { font-size: 17px; }
+    .act-title { font-size: 16px; }
+  }
+
   /* NOTE */
   .note {
     margin-top: 14px;
@@ -1128,11 +1250,84 @@
             <div class="h-nights-lbl">Nights</div>
           </div>
         </div>
+
+        <!-- VENICE DAILY SCHEDULE -->
+        <div class="day-schedule" onclick="this.classList.toggle('open')">
+          <div class="day-header">
+            <div class="day-header-left">
+              <div class="day-date">Monday, March 30</div>
+              <div class="day-label">Arrival Day</div>
+            </div>
+            <div class="day-toggle">▾</div>
+          </div>
+          <div class="day-body">
+            <div class="day-empty">Arrival in Venice via Italo from Rome · Check in to The Gritti Palace · Settle in &amp; explore</div>
+          </div>
+        </div>
+
+        <div class="day-schedule open" onclick="this.classList.toggle('open')">
+          <div class="day-header">
+            <div class="day-header-left">
+              <div class="day-date">Tuesday, March 31</div>
+              <div class="day-label">Full Day in Venice</div>
+            </div>
+            <div class="day-toggle">▾</div>
+          </div>
+          <div class="day-body">
+            <div class="act-list">
+
+              <div class="act-item">
+                <div class="act-time-block">
+                  <div class="act-time">8:00</div>
+                  <div class="act-duration">1 Hour</div>
+                </div>
+                <div class="act-content">
+                  <div class="act-title"><span class="act-icon">☀</span>Breakfast</div>
+                  <div class="act-detail">8:00 AM – 9:00 AM</div>
+                </div>
+              </div>
+
+              <div class="act-item">
+                <div class="act-time-block">
+                  <div class="act-time">14:00</div>
+                  <div class="act-duration">3 Hours</div>
+                </div>
+                <div class="act-content">
+                  <div class="act-title"><span class="act-icon">🏛</span>Private Tour Guide in Venice</div>
+                  <div class="act-detail">2:00 PM – 5:00 PM · Private guided walking tour<br>Meet at The Gritti Palace lobby</div>
+                </div>
+              </div>
+
+              <div class="act-item">
+                <div class="act-time-block">
+                  <div class="act-time">18:30</div>
+                  <div class="act-duration">1.5 Hours</div>
+                </div>
+                <div class="act-content">
+                  <div class="act-title"><span class="act-icon">📸</span>Photographer &amp; Gondola Ride</div>
+                  <div class="act-detail">6:30 PM – 8:00 PM · Private photographer · Gondola ride through the canals<br>Meet at The Gritti Palace lobby</div>
+                </div>
+              </div>
+
+              <div class="act-item">
+                <div class="act-time-block">
+                  <div class="act-time">20:30</div>
+                  <div class="act-duration"></div>
+                </div>
+                <div class="act-content">
+                  <div class="act-title"><span class="act-icon">🍽</span>Dinner</div>
+                  <div class="act-detail">8:30 PM · Restaurant to be determined</div>
+                  <div class="act-badge-tbd">TBD</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <div class="ornament"><div class="ornament-gem">◆</div></div>
-
-      <!-- FLORENCE -->
       <div class="city-block reveal">
         <div class="city-hd">
           <div class="city-hd-left">
@@ -1180,6 +1375,47 @@
             <div class="h-nights-lbl">Nights</div>
           </div>
         </div>
+
+        <!-- FLORENCE DAILY SCHEDULE -->
+        <div class="day-schedule" onclick="this.classList.toggle('open')">
+          <div class="day-header">
+            <div class="day-header-left">
+              <div class="day-date">Wednesday, April 1</div>
+              <div class="day-label">Arrival Day</div>
+            </div>
+            <div class="day-toggle">▾</div>
+          </div>
+          <div class="day-body">
+            <div class="day-empty">Arrive in Florence via Italo from Venice · Check in to Hotel Santa Maria Novella · Explore the piazza</div>
+          </div>
+        </div>
+
+        <div class="day-schedule" onclick="this.classList.toggle('open')">
+          <div class="day-header">
+            <div class="day-header-left">
+              <div class="day-date">Thursday, April 2</div>
+              <div class="day-label">Full Day in Florence</div>
+            </div>
+            <div class="day-toggle">▾</div>
+          </div>
+          <div class="day-body">
+            <div class="day-empty">Activities coming soon — check back for updates</div>
+          </div>
+        </div>
+
+        <div class="day-schedule" onclick="this.classList.toggle('open')">
+          <div class="day-header">
+            <div class="day-header-left">
+              <div class="day-date">Friday, April 3</div>
+              <div class="day-label">Full Day in Florence</div>
+            </div>
+            <div class="day-toggle">▾</div>
+          </div>
+          <div class="day-body">
+            <div class="day-empty">Activities coming soon — check back for updates</div>
+          </div>
+        </div>
+
       </div>
 
       <div class="ornament"><div class="ornament-gem">◆</div></div>
@@ -1233,6 +1469,47 @@
             <div class="h-nights-lbl">Nights</div>
           </div>
         </div>
+
+        <!-- ROME DAILY SCHEDULE -->
+        <div class="day-schedule" onclick="this.classList.toggle('open')">
+          <div class="day-header">
+            <div class="day-header-left">
+              <div class="day-date">Saturday, April 4</div>
+              <div class="day-label">Arrival Day</div>
+            </div>
+            <div class="day-toggle">▾</div>
+          </div>
+          <div class="day-body">
+            <div class="day-empty">Arrive in Rome via Italo from Florence · Check in to The St. Regis · Evening champagne sabering at Lumen bar</div>
+          </div>
+        </div>
+
+        <div class="day-schedule" onclick="this.classList.toggle('open')">
+          <div class="day-header">
+            <div class="day-header-left">
+              <div class="day-date">Sunday, April 5</div>
+              <div class="day-label">Full Day in Rome</div>
+            </div>
+            <div class="day-toggle">▾</div>
+          </div>
+          <div class="day-body">
+            <div class="day-empty">Activities coming soon — check back for updates</div>
+          </div>
+        </div>
+
+        <div class="day-schedule" onclick="this.classList.toggle('open')">
+          <div class="day-header">
+            <div class="day-header-left">
+              <div class="day-date">Monday, April 6</div>
+              <div class="day-label">Last Full Day</div>
+            </div>
+            <div class="day-toggle">▾</div>
+          </div>
+          <div class="day-body">
+            <div class="day-empty">Activities coming soon — check back for updates</div>
+          </div>
+        </div>
+
         <div class="note">
           <span class="note-icon">✈</span>
           <div>
@@ -1277,9 +1554,9 @@
         <div class="sum-sub">Imperial Guest Room<br>Apr 4 – 7<br>Butler service · Since 1894</div>
       </div>
       <div class="sum-cell">
-        <div class="sum-lbl">Coming Soon</div>
-        <div class="sum-val">Museums &amp;<br>Attractions</div>
-        <div class="sum-sub">Uffizi · Accademia (David)<br>Borghese · Vatican Museums<br>Colosseum · Book ASAP!</div>
+        <div class="sum-lbl">Activities</div>
+        <div class="sum-val">Museums, Tours<br>&amp; Experiences</div>
+        <div class="sum-sub">Private Venice tour &amp; gondola<br>Photography session<br>More being added — check back!</div>
       </div>
     </div>
   </div>
